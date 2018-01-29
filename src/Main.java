@@ -21,14 +21,18 @@ public class Main {
             InputStreamReader streamReader = new InputStreamReader(socket.getInputStream());
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(streamReader);
-
-            String username;
-            username = scanner.nextLine();
-            out.print("USER " + username);
-
+            String command, input;
             while ((line = in.readLine()) != null) {
-                System.out.println(line);
+                if(line.contains("eom")) {
+                    command = scanner.nextLine();
+                    out.println(command);
+                }
+                else{
+                    System.out.println(line);
+                }
             }
+
+
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e.getMessage());
