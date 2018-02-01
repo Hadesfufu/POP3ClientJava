@@ -23,12 +23,13 @@ public class Main {
             BufferedReader in = new BufferedReader(streamReader);
             String command, input;
             while ((line = in.readLine()) != null) {
-                if(line.contains("eom")) {
+
+                if(!line.equals("."))
+                    System.out.println(line);
+
+                if(!in.ready()) {
                     command = scanner.nextLine();
                     out.println(command);
-                }
-                else{
-                    System.out.println(line);
                 }
             }
 
